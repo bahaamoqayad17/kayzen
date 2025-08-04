@@ -1,0 +1,180 @@
+{
+    "Home": {
+        "title": "Home"
+    },
+    "About": {
+        "title": "About Us"
+    },
+    "Contact": {
+        "title": "Contact Us"
+    },
+    "Tagline": {
+        "title": "Marketing and Exhibition Organizing Agency"
+    },
+    "Header": {
+        "title": "Kaizen.. Continuous Arrow",
+        "description": "We guide you to the right market, and we get you the results that raise your head with a calculated plan and work taken with determination and creativity",
+        "button": "Contact Us Now"
+    },
+    "Navbar": {
+        "home": "Home",
+        "about": "About Us",
+        "services": "Services",
+        "contact": "Contact Us"
+    },
+    "AboutUs": {
+        "whoWeAre": {
+            "title": "Who Are We?",
+            "description": "We are a specialized team in marketing and exhibition organizing, working to provide innovative and impactful solutions for our clients through extensive experience in digital and traditional marketing"
+        },
+        "ourVision": {
+            "title": "Our Vision",
+            "description": "We strive to be the first strategic partner for companies in achieving their marketing goals, and we aspire to reach the pinnacle of leadership in marketing and exhibition organizing by 2030"
+        },
+        "ourMission": {
+            "title": "Our Mission",
+            "description": "We are committed to providing high-quality and innovative services, helping our clients achieve success and impact in their target markets through integrated marketing strategies"
+        },
+        "readMore": "Read More"
+    },
+    "Montieze": {
+        "title": "Come closer, let's start the right work",
+        "description": "We are Kaizen, our work is in the hands of energetic youth who don't know laziness, and minds that work like a clock. We handle the organization of exhibitions and conferences and tailor promotional campaigns for the Saudi market with precision, for the good path. We don't work randomly, nor do we chase mirages... Precision and uniqueness are our compass... Every step is calculated, and every detail has meaning"
+    },
+    "Services": {
+        "title": "What services do we offer",
+        "tagline": "Because beauty is not complete without someone who understands beauty, we offer you:",
+        "services": {
+            "service1": {
+                "title": "Design and Visual Production",
+                "description": "Beautiful sciences raise the head, and beauty does not need advertising. We design work that resembles you and speaks of your beauty... We photograph, produce, and create works that elevate your name in a way that suits your project"
+            },
+            "service2": {
+                "title": "Social Media Account Management and Paid Campaigns",
+                "description": "He who does not count his men, his knowledge is lost. We manage your accounts correctly, adjust your advertising campaigns, deliver your voice to the far before the near. And achieve your goals and sales"
+            },
+            "service3": {
+                "title": "Exhibition and Conference Organization and Management",
+                "description": "A full belt strengthens and supports the back. We handle your exhibition and conference with a capable hand, from concept to execution on the ground, with every detail calculated"
+            },
+            "service4": {
+                "title": "Marketing and Communication Consultations",
+                "description": "Beauty is seen from the first glance. We draw smart communication and marketing plans for you, keeping you ahead of your competitors by steps"
+            },
+            "service5": {
+                "title": "Event and Season Content Management",
+                "description": "Presence is beauty, but action proves it. We organize events that put your name at the forefront... from concept to the last day of the event"
+            },
+            "service6": {
+                "title": "Written and Informative Content",
+                "description": "Not everyone who rides a horse is a knight. Our team are knights of the word. We craft texts that tell your story and leave your mark on every platform"
+            },
+            "service7": {
+                "title": "Podcast Messages and WhatsApp Data",
+                "description": "Good words reach the heart. We activate voice or written messages for you to send via your project's WhatsApp data, delivering the right message in a dialect your audience loves"
+            },
+            "service8": {
+                "title": "Vlog Production and Customer Experiences (UGC)",
+                "description": "Ask an experienced person, not a wise one. Let your customers talk about their experience with you in their natural way, so people hear the words from their source"
+            },
+            "service9": {
+                "title": "Innovation and Execution of Creative Campaigns",
+                "description": "Strike while the iron is hot. We create campaigns that hit the market at the right time, making your audience remember you at every event"
+            },
+            "service10": {
+                "title": "Influencer Campaigns and Experiential Marketing",
+                "description": "While the iron is hot, choose the right influencers for you. We launch campaigns with TikTokers and famous models who suit your audience and speak their language, so they see you with an eye close to their heart"
+            },
+            "service11": {
+                "title": "Comprehensive Digital Marketing",
+                "description": "He who grows up on something grows old with it. We create a digital identity for you from scratch. Presence ads, digital reputation... supporting you from all sides"
+            }
+        }
+    },
+    "Stats": {
+        "stat1": {
+            "title": "Statistics",
+            "number": "6523"
+        },
+        "stat2": {
+            "title": "Our Clients",
+            "number": "2632"
+        },
+        "stat3": {
+            "title": "Satisfying Experiences",
+            "number": "536"
+        },
+        "stat4": {
+            "title": "Exhibitions We Prepared",
+            "number": "365"
+        },
+        "stat5": {
+            "title": "Satisfied Customer",
+            "number": "2632"
+        }
+    },
+    "Footer": {
+        "description": "We guide you to the right market, and we get you the results that raise your head with a calculated plan and work taken with determination and creativity",
+        "pages": "Pages",
+        "newsletter": "Subscribe to our newsletter",
+        "emailPlaceholder": "Enter your email here",
+        "subscribe": "Subscribe"
+    },
+    "ContactUsForm": {
+        "title": "Ready to hear you... and support you",
+        "description": "Do you want to launch a campaign? Do you want to organize an exhibition? Or do you want work that satisfies? Don't worry, Kaizen is with you from the first idea to the last achievement... We work with you and make your presence felt everywhere",
+        "formTitle": "Contact Form",
+        "nameLabel": "Your Name",
+        "namePlaceholder": "Ahmed Mohammed",
+        "emailLabel": "Your Email",
+        "emailPlaceholder": "Ahmed Mohammed",
+        "serviceTitle": "Type of service you need",
+        "services": {
+            "service1": {
+                "title": "Organizing and Managing Exhibitions and Conferences",
+                "icon": "/contact-service1.svg"
+            },
+            "service2": {
+                "title": "Managing Social Media Accounts and Paid Campaigns",
+                "icon": "/contact-service2.svg"
+            },
+            "service3": {
+                "title": "Arabic Design and Production",
+                "icon": "/contact-service3.svg"
+            },
+            "service4": {
+                "title": "Written and Introductory Content",
+                "icon": "/contact-service4.svg"
+            }
+        },
+        "messageLabel": "Your Message",
+        "messagePlaceholder": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using it is that...",
+        "submitButton": "Send"
+    },
+    "OurClient": {
+        "title": "Our Clients",
+        "description": "We worked with brands we don't consider clients... but rather partners on the journey. From their first work until they stood on their feet, and Kaizen's name is present with them every step of the way"
+    },
+    "HappyClients": {
+        "subtitle": "Happy Customers",
+        "title": "Kaizen Reviews - From People Who Tried Us",
+        "description": "Because we tailor our services to their needs, and provide work that makes them repeat the experience without hesitation.",
+        "testimonials": {
+            "testimonial1": {
+                "text": "Kaizen? No need to describe them, their work is clean as if you're looking at a Swiss watch. They organized the exhibition for us from A to Z, and every detail was calculated. Young people who work from the heart, and know the Saudi market inside out.",
+                "name": "Ibrahim Al-Aklouk",
+                "title": "UXUI DESIGNER"
+            },
+            "testimonial2": {
+                "text": "One of the best companies I've worked with, their work is professional and precise. They organized a marketing campaign for us that achieved amazing results, and their prices are very reasonable.",
+                "name": "Sarah Ahmed",
+                "title": "MARKETING MANAGER"
+            },
+            "testimonial3": {
+                "text": "A cooperative and professional team, they understood our requirements accurately and executed the project on time. The results exceeded our expectations by far.",
+                "name": "Mohammed Al-Khalid",
+                "title": "CEO"
+            }
+        }
+    }
+}
