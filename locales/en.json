@@ -42,6 +42,7 @@
         "description": "We are Kaizen, our work is in the hands of energetic youth who don't know laziness, and minds that work like a clock. We handle the organization of exhibitions and conferences and tailor promotional campaigns for the Saudi market with precision, for the good path. We don't work randomly, nor do we chase mirages... Precision and uniqueness are our compass... Every step is calculated, and every detail has meaning"
     },
     "Services": {
+        "ourServices": "Our Services",
         "title": "What services do we offer",
         "tagline": "Because beauty is not complete without someone who understands beauty, we offer you:",
         "services": {

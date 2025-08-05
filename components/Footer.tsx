@@ -47,7 +47,7 @@ export default function Footer() {
               {socialMediaIcons.map((icon, index) => (
                 <div
                   key={index}
-                  className="relative w-12 h-12 bg-black rounded-2xl flex items-center justify-center border border-gray-600 hover:border-teal-400 transition-colors duration-200"
+                  className="relative cursor-pointer w-12 h-12 bg-black rounded-2xl flex items-center justify-center border border-gray-600 hover:border-teal-400 transition-colors duration-200"
                 >
                   {/* Glowing effect - always visible */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-teal-400/20 via-transparent to-teal-400/20"></div>
@@ -87,17 +87,17 @@ export default function Footer() {
           </div>
 
           {/* Left Column - Newsletter Subscription */}
-          <div className="text-center md:text-left">
+          <div className="relative">
             <h3 className="text-white font-bold text-lg mb-6">
               {t("Footer.newsletter")}
             </h3>
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex bg-[#011F1D] p-2 rounded-lg overflow-hidden shadow-[0_0_10px_rgba(2,220,208,0.3)]">
               <input
                 type="email"
                 placeholder={t("Footer.emailPlaceholder")}
-                className="flex-1 px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-teal-400 transition-colors duration-200"
+                className="flex-1 px-4 py-3 bg-transparent text-white placeholder-gray-400 focus:outline-none text-right"
               />
-              <button className="px-6 py-3 bg-teal-400 text-white rounded-lg hover:bg-teal-500 transition-colors duration-200 font-medium">
+              <button className="px-8 py-3 bg-[#018A83] cursor-pointer text-white hover:bg-teal-500 transition-colors duration-200 font-medium rounded-2xl">
                 {t("Footer.subscribe")}
               </button>
             </div>
@@ -112,8 +112,13 @@ export default function Footer() {
           background: `linear-gradient(180deg, #000E0E 0%, #006E69 100%)`,
         }}
       >
+        <div className="absolute top-0 left-[17%] w-70">
+          <div className="h-0.5 bg-gradient-to-r from-transparent via-teal-400 to-transparent rounded-full blur-sm opacity-80"></div>
+        </div>
         {/* Kaizen Image */}
         <div className="w-full">
+          {/* Glowing horizontal line effect */}
+
           {/* gutters */}
           <div className="mx-auto px-4 sm:px-6 lg:px-15">
             {/* sized box for fill */}
