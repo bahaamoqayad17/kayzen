@@ -25,7 +25,15 @@ export default function Services() {
   return (
     <>
       <Navbar />
-      <div className="py-20 px-4 sm:px-6 lg:px-8">
+      <div
+        className="py-20 px-4 sm:px-6 lg:px-8"
+        style={{
+          backgroundImage: `url(/services-bg.png)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <div className="container mx-auto">
           {/* Header Section */}
           <div className="mb-16 mt-20">

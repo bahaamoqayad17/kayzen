@@ -19,6 +19,7 @@
 
 # production
 /build
+ssh.txt
 
 # misc
 .DS_Store

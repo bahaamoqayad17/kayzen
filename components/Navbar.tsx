@@ -4,11 +4,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/locales/navigation";
+import { useLocale } from "next-intl";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const t = useTranslations();
   const pathname = usePathname();
+  const locale = useLocale();
 
   const navItems = [
     { key: "home", href: "/" },
@@ -19,6 +21,13 @@ export default function Navbar() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleLanguage = () => {
+    const newLocale = locale === "en" ? "ar" : "en";
+    const currentPath = pathname;
+    const newPath = `/${newLocale}${currentPath}`;
+    window.location.href = newPath;
   };
 
   return (
@@ -32,14 +41,12 @@ export default function Navbar() {
                 <Image
                   src="/logo.png"
                   alt="Kaizen Logo"
+                  priority
                   width={120}
                   height={40}
                   className="h-10 w-auto"
                 />
               </div>
-              <p className="text-white text-xs mt-1 opacity-90">
-                {t("Tagline.title")}
-              </p>
             </div>
           </div>
 
@@ -57,10 +64,44 @@ export default function Navbar() {
                 </Link>
               </React.Fragment>
             ))}
+
+            {/* Language Toggle Button */}
+            <button
+              onClick={toggleLanguage}
+              className="flex cursor-pointer items-center space-x-2 text-white hover:text-teal-300 transition-colors duration-200 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-lg hover:bg-white/20"
+            >
+              <Image
+                src="/lang.svg"
+                alt="Language"
+                width={24}
+                height={24}
+                className="w-4 h-4"
+              />
+              <span className="text-sm font-medium">
+                {locale === "en" ? "العربية" : "English"}
+              </span>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Language Toggle Button for Mobile */}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center space-x-1 text-white hover:text-teal-300 transition-colors duration-200 bg-white/10 backdrop-blur-sm px-2 py-1 rounded-md hover:bg-white/20"
+            >
+              <Image
+                src="/lang.svg"
+                alt="Language"
+                width={14}
+                height={14}
+                className="w-3.5 h-3.5"
+              />
+              <span className="text-xs font-medium">
+                {locale === "en" ? "عربي" : "EN"}
+              </span>
+            </button>
+
             <button
               onClick={toggleMenu}
               className="text-white p-2 rounded-md hover:bg-white/10 transition-colors"
@@ -104,7 +145,7 @@ export default function Navbar() {
                     pathname === item.href ? "bg-white/20 font-semibold" : ""
                   }`}
                 >
-                  {t(`${item.key}.title`)}
+                  {t(`Navbar.${item.key}`)}
                 </Link>
               ))}
             </div>

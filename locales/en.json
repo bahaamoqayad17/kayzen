@@ -3,7 +3,9 @@
         "title": "Home"
     },
     "About": {
-        "title": "About Us"
+        "subtitle": "Who are we",
+        "title": "The people of the land who are only satisfied with beauty/excellence",
+        "description": "Kaizen is not just a name, Kaizen is a way of life in work, in creativity, and in the details that make a difference. We started from our land, and from it, we understood the market and its personality. We work with a youthful spirit, but with heavy weight. We draw the idea, build the plan, execute it with love, and leave an impact that speaks for us. Every exhibition, campaign, or production has a team behind it that knows where it's going and why it's going."
     },
     "Contact": {
         "title": "Contact Us"
@@ -177,5 +179,56 @@
                 "title": "CEO"
             }
         }
+    },
+    "Goals": {
+        "mainTitle": "Our Vision, Mission & Goals",
+        "mainDescription": "We strive to be your trusted partner in bold endeavors, supporting entities to achieve Vision 2030 locally and globally with confidence, impactful work, and lasting recognition.",
+        "vision": {
+            "title": "Our Vision",
+            "subtitle": "We are the partner that is relied upon in every bold step",
+            "description": "We aspire to be the partner that is relied upon in every bold step. We aim to be the arm through which entities build a presence that keeps pace with Vision 2030, locally and globally, with undeniable confidence, work that raises heads, and keeps your name always at the forefront.",
+            "overlayText": "Our Vision"
+        },
+        "mission": {
+            "title": "Our Mission",
+            "subtitle": "We serve you with work that leaves a mark and elevates your name",
+            "description": "We serve you with work that leaves a mark and elevates your name. From the first spark of an idea, to the last detail in execution... We work to distinguish you, and to make your presence unforgettable. We don't work to complete a number, we work to leave an impact.",
+            "overlayText": "Our Mission"
+        },
+        "goals": {
+            "title": "Our Goals",
+            "subtitle": "We do meaningful work... and it lives on after it ends",
+            "description": "We do meaningful work... and it lives on after it ends. Our goal is to build unforgettable campaigns, events, and experiences. Every detail is calculated, every action has an intention behind it, and every project we work on is a step forward for you and for us.",
+            "overlayText": "Our Goals"
+        },
+        "cta": "Ready to start your journey with us?",
+        "button": "Get Started"
+    },
+    "OurTeam": {
+        "title": "Our Creative Team",
+        "subtitle": "Members of Kaizen Team",
+        "member1": {
+            "name": "Ibrahim Al-Aklouk",
+            "role": "UI/UX Designer"
+        },
+        "member2": {
+            "name": "Ahmed Al-Aklouk",
+            "role": "UI/UX Designer"
+        }
+    },
+    "Faq": {
+        "title": "Frequently Asked Questions",
+        "question1": "What services does Kaizen offer?",
+        "answer1": "Kaizen offers a comprehensive range of marketing and exhibition services including design and visual production, social media management, exhibition organization, marketing consultations, content management, and comprehensive digital marketing solutions.",
+        "question2": "How long does it take to complete a project?",
+        "answer2": "Project timelines vary depending on the scope and complexity. Small projects typically take 2-4 weeks, while larger campaigns or exhibitions may take 2-3 months. We always provide detailed timelines during our initial consultation.",
+        "question3": "Do you work with international clients?",
+        "answer3": "Yes, we work with both local and international clients. Our team has experience in managing projects for clients from various countries and can adapt our services to meet different cultural and market requirements.",
+        "question4": "What makes Kaizen different from other agencies?",
+        "answer4": "Kaizen stands out through our deep understanding of the Saudi market, our commitment to excellence in every detail, and our innovative approach to marketing and exhibition organization. We combine local expertise with global best practices."
+    },
+    "Gallery": {
+        "title": "Gallery of Images",
+        "subtitle": "Here you will find our works and creations"
     }
 }
