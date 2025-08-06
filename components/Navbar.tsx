@@ -38,14 +38,16 @@ export default function Navbar() {
           <div className="flex items-center">
             <div className="flex flex-col items-start">
               <div className="flex items-center">
-                <Image
-                  src="/logo.png"
-                  alt="Kaizen Logo"
-                  priority
-                  width={120}
-                  height={40}
-                  className="h-10 w-auto"
-                />
+                <Link href={"/"}>
+                  <Image
+                    src="/logo.png"
+                    alt="Kaizen Logo"
+                    priority
+                    width={120}
+                    height={40}
+                    className="h-10 w-auto cursor-pointer"
+                  />
+                </Link>
               </div>
             </div>
           </div>
@@ -134,7 +136,7 @@ export default function Navbar() {
 
         {/* Mobile Drawer */}
         {isMenuOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden bg-black">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white/10 backdrop-blur-md rounded-lg mt-2">
               {navItems.map((item) => (
                 <Link

@@ -1,11 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 
 export default function HappyClients() {
   const t = useTranslations();
+
+  const locale = useLocale();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -70,28 +72,51 @@ export default function HappyClients() {
         {/* Navigation Buttons */}
         <div className="flex justify-center mb-8">
           <div className="flex space-x-4">
-            <Image
-              src="/right-arrow.svg"
-              alt="Right Arrow"
-              width={34}
-              height={35}
-              onClick={nextTestimonial}
-              className="cursor-pointer"
-            />
+            {locale === "ar" ? (
+              <>
+                <Image
+                  src="/right-arrow.svg"
+                  alt="Right Arrow"
+                  width={34}
+                  height={35}
+                  onClick={nextTestimonial}
+                  className="cursor-pointer"
+                />
 
-            <Image
-              src="/left-arrow.svg"
-              alt="Left Arrow"
-              width={34}
-              height={35}
-              onClick={prevTestimonial}
-              className="cursor-pointer"
-            />
+                <Image
+                  src="/left-arrow.svg"
+                  alt="Left Arrow"
+                  width={34}
+                  height={35}
+                  onClick={prevTestimonial}
+                  className="cursor-pointer"
+                />
+              </>
+            ) : (
+              <>
+                <Image
+                  src="/left-arrow.svg"
+                  alt="Left Arrow"
+                  width={34}
+                  height={35}
+                  onClick={prevTestimonial}
+                  className="cursor-pointer"
+                />
+                <Image
+                  src="/right-arrow.svg"
+                  alt="Right Arrow"
+                  width={34}
+                  height={35}
+                  onClick={nextTestimonial}
+                  className="cursor-pointer"
+                />
+              </>
+            )}
           </div>
         </div>
 
         {/* Testimonial Card with Vertical Progress Bar */}
-        <div className="relative flex items-center justify-center w-[40%] mx-auto gap-4">
+        <div className="relative flex items-center justify-center w-full md:w-[40%] mx-auto gap-4">
           <div className="relative h-full flex flex-col justify-center z-10">
             {/* Progress Bar Container */}
             <div className="relative w-1 h-40 bg-gray-700 rounded-full">
@@ -152,18 +177,24 @@ export default function HappyClients() {
               </div>
             </div>
           </div>
-
           {/* Stacked card effect - positioned below */}
+
           <div
-            className="absolute top-3 left-1 w-full h-full bg-[#101010] rounded-lg border border-gray-700"
+            className={`absolute top-3 ${
+              locale === "ar" ? "left-1" : "right-1"
+            } w-full h-full bg-[#101010] rounded-lg border border-gray-700`}
             style={{ zIndex: 1 }}
           ></div>
           <div
-            className="absolute top-6 left-4 w-full h-full bg-[#101010] rounded-lg border border-gray-700"
+            className={`absolute top-6 ${
+              locale === "ar" ? "left-4" : "right-4"
+            } w-full h-full bg-[#101010] rounded-lg border border-gray-700`}
             style={{ zIndex: 0 }}
           ></div>
           <div
-            className="absolute top-9 left-6 w-full h-full bg-[#101010] rounded-lg border border-gray-700"
+            className={`absolute top-9 ${
+              locale === "ar" ? "left-6" : "right-6"
+            } w-full h-full bg-[#101010] rounded-lg border border-gray-700`}
             style={{ zIndex: -1 }}
           ></div>
         </div>

@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function Faq() {
   const t = useTranslations("Faq");
   const [openIndex, setOpenIndex] = useState(0); // First item open by default
+  const locale = useLocale();
 
   const faqItems = [
     {
@@ -69,7 +70,11 @@ export default function Faq() {
                 className="w-full px-8 py-6 flex items-center justify-between text-white hover:bg-gray-800/30 transition-colors duration-200"
               >
                 {/* Question Text */}
-                <span className="text-lg font-medium text-right flex-1">
+                <span
+                  className={`text-lg font-medium ${
+                    locale === "ar" ? "text-right" : "text-left"
+                  } flex-1`}
+                >
                   {item.question}
                 </span>
 
@@ -102,7 +107,11 @@ export default function Faq() {
                 }`}
               >
                 <div className="px-8 pb-6">
-                  <p className="text-white/80 leading-relaxed text-right">
+                  <p
+                    className={`text-white/80 leading-relaxed ${
+                      locale === "ar" ? "text-right" : "text-left"
+                    }`}
+                  >
                     {item.answer}
                   </p>
                 </div>

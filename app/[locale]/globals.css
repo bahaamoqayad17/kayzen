@@ -25,3 +25,41 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.glow-box {
+  background-color: black;
+  border-radius: 10px;
+  border: 6px solid #00f7ff;
+  box-shadow: -12px -12px 30px rgba(0, 247, 255, 0.9),
+    12px 12px 30px rgba(0, 247, 255, 0.9), 0 0 50px rgba(0, 247, 255, 0.6);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: aqua;
+  display: grid;
+  place-items: center;
+  animation: zoomin 1.5s infinite alternate-reverse;
+  position: relative;
+}
+
+.inner {
+  background-color: #212121;
+  width: 80%;
+  height: 80%;
+  border-radius: 100%;
+}
+
+@keyframes zoomin {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 100px 20px rgb(16, 71, 71);
+  }
+
+  100% {
+    transform: scale(1.5);
+    box-shadow: 0 0 100px 20px #000;
+  }
+}

@@ -78,7 +78,7 @@ export default function About() {
                 </h1>
 
                 {/* Description paragraph */}
-                <p className="text-white/90 text-center text-3xl leading-relaxed">
+                <p className="text-white/90 text-center text-lg md:text-3xl leading-relaxed">
                   {t("description")}
                 </p>
               </div>

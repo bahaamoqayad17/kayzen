@@ -27,7 +27,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Right Column - Company Information & Social Media */}
-          <div className="text-right">
+          <div>
             {/* Logo and Tagline */}
             <Image
               src="/logo.png"
@@ -68,7 +68,7 @@ export default function Footer() {
           </div>
 
           {/* Middle Column - Navigation Links */}
-          <div className="text-center md:text-right">
+          <div className="">
             <h3 className="text-white font-bold text-lg mb-6">
               {t("Footer.pages")}
             </h3>
@@ -95,7 +95,7 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder={t("Footer.emailPlaceholder")}
-                className="flex-1 px-4 py-3 bg-transparent text-white placeholder-gray-400 focus:outline-none text-right"
+                className="flex-1 px-4 py-3 bg-transparent text-white placeholder-gray-400 focus:outline-none"
               />
               <button className="px-8 py-3 bg-[#018A83] cursor-pointer text-white hover:bg-teal-500 transition-colors duration-200 font-medium rounded-2xl">
                 {t("Footer.subscribe")}
@@ -107,7 +107,7 @@ export default function Footer() {
 
       {/* Gradient Section with Kaizen Image */}
       <div
-        className="relative min-h-screen flex items-center justify-center mt-4"
+        className="relative h-[330px] md:min-h-screen flex items-center justify-center mt-4"
         style={{
           background: `linear-gradient(180deg, #000E0E 0%, #006E69 100%)`,
         }}
@@ -122,7 +122,7 @@ export default function Footer() {
           {/* gutters */}
           <div className="mx-auto px-4 sm:px-6 lg:px-15">
             {/* sized box for fill */}
-            <div className="relative h-[60vh] rounded-2xl overflow-hidden">
+            <div className="relative h-[13vh] md:h-[60vh] rounded-2xl overflow-hidden">
               <Image
                 src="/kayzen.png"
                 alt="Kaizen"

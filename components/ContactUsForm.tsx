@@ -16,10 +16,10 @@ export default function ContactUsForm() {
   ];
 
   return (
-    <div className="min-h-screen text-white py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen text-white pb-0 md:py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-4xl">
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 pt-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             {t("ContactUsForm.title")}
           </h1>

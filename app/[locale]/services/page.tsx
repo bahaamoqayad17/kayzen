@@ -94,7 +94,7 @@ export default function Services() {
           </div>
 
           {/* Additional Services - 2 cards */}
-          <div className="grid grid-cols-1 gap-6 w-1/2 mx-auto">
+          <div className="grid grid-cols-1 gap-6 w-full md:w-1/2 mx-auto">
             {services.slice(10).map((service) => (
               <div
                 key={service.key}

@@ -82,7 +82,7 @@ export default function Goals() {
               }`}
             >
               {/* Text Content */}
-              <div className="w-full lg:w-1/2 space-y-6 max-w-xl">
+              <div className="w-full lg:w-1/2 space-y-6 max-w-xl mb-5 md:mb-0">
                 {/* Small teal subtitle */}
                 <div>
                   <h3 className="text-teal-400 text-xl font-medium mb-2">

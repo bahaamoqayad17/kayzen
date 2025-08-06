@@ -82,7 +82,7 @@ export default function Stats() {
       <div className="container mx-auto">
         <div
           ref={statsRef}
-          className="rounded-3xl p-8 border border-gray-700 backdrop-blur-[40px]"
+          className="rounded-3xl p-4 md:p-8 border border-gray-700 backdrop-blur-[40px]"
           style={{
             background:
               "linear-gradient(10deg, rgba(1,138,131,0.10) 0%, rgba(0,218,206,0.10) 100%)",
@@ -91,7 +91,7 @@ export default function Stats() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
             {stats.map((stat, index) => (
               <div key={stat.key} className="relative">
-                <div className="flex items-center text-center p-4">
+                <div className="flex justify-center items-center text-center p-4">
                   {/* Icon */}
                   <div className="w-12 h-12 flex items-center justify-center">
                     <Image

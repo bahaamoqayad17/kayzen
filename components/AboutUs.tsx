@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export default function AboutUs() {
   const t = useTranslations();
@@ -26,7 +27,7 @@ export default function AboutUs() {
   ];
 
   return (
-    <div className="py-10 md:py-20">
+    <div className="py-10 pt-0 md:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Three Content Blocks */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
@@ -89,9 +90,11 @@ export default function AboutUs() {
         {/* Call to Action Button */}
         <div className="flex justify-center">
           <div className="relative">
-            <button className="bg-black text-white px-14 py-4 rounded-lg transition-all duration-300 border border-gray-600 hover:border-gray-500">
-              {t("AboutUs.readMore")}
-            </button>
+            <Link href={"/about"}>
+              <button className="bg-black cursor-pointer text-white px-14 py-4 rounded-lg transition-all duration-300 border border-gray-600 hover:border-gray-500">
+                {t("AboutUs.readMore")}
+              </button>
+            </Link>
 
             {/* Glowing teal line below the button */}
             <div className="absolute -bottom-1 left-0 right-0 h-1 w-25 mx-auto bg-gradient-to-r from-transparent via-teal-400 to-transparent" />
