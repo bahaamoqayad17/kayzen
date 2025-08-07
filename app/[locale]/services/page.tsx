@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import Navbar from "@/components/Navbar";
 import HappyClients from "@/components/HappyClients";
 import ContactUsForm from "@/components/ContactUsForm";
+import Stars from "@/components/Stars";
 
 export default function Services() {
   const t = useTranslations();
@@ -56,13 +57,17 @@ export default function Services() {
       <div
         ref={sectionRef}
         className="py-20 px-4 sm:px-6 lg:px-8"
-        style={{
-          backgroundImage: `url(/services-bg.png)`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
+        style={
+          {
+            // backgroundImage: `url(/services-bg.png)`,
+            // backgroundSize: "cover",
+            // backgroundPosition: "center",
+            // backgroundRepeat: "no-repeat",
+          }
+        }
       >
+        <Stars />
+
         <div className="container mx-auto">
           {/* Header Section */}
           <div
@@ -146,7 +151,7 @@ export default function Services() {
                 style={{
                   background:
                     "linear-gradient(0deg, rgba(4, 8, 14, 0.1) 0%, rgba(5, 8, 14, 0.1) 100%)",
-                  transitionDelay: `${(index + 11) * 100}ms`,
+                  transitionDelay: `${(10 + index + 1) * 100}ms`,
                 }}
               >
                 {/* Icon */}

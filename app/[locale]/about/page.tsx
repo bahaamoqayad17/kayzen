@@ -9,6 +9,7 @@ import OurTeam from "./OurTeam";
 import Faq from "./Faq";
 import Gallery from "./Gallery";
 import ContactUsForm from "@/components/ContactUsForm";
+import Stars from "@/components/Stars";
 
 export default function About() {
   const t = useTranslations("About");
@@ -44,12 +45,11 @@ export default function About() {
       <Navbar />
 
       {/* About Hero Section */}
-      <div
-        ref={heroRef}
-        className="relative min-h-screen bg-black overflow-hidden"
-      >
+      <div ref={heroRef} className="relative min-h-screen overflow-hidden">
+        <Stars />
+
         {/* Background Image */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 z-0">
           <Image
             src="/about-bg.png"
             alt="About Background"

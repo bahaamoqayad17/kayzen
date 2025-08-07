@@ -51,6 +51,18 @@ export default function Faq() {
       question: t("question4"),
       answer: t("answer4"),
     },
+    {
+      question: t("question5"),
+      answer: t("answer5"),
+    },
+    {
+      question: t("question6"),
+      answer: t("answer6"),
+    },
+    {
+      question: t("question7"),
+      answer: t("answer7"),
+    },
   ];
 
   const toggleAccordion = (index: number) => {

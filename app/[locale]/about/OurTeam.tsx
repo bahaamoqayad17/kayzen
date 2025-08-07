@@ -102,7 +102,7 @@ export default function OurTeam() {
                   : "translate-y-8 opacity-0 scale-95"
               }`}
               style={{
-                transitionDelay: `${(index + 1) * 100}ms`,
+                transitionDelay: `${(index + 1) * 200}ms`,
               }}
             >
               {/* Team Member Card */}

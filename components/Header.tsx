@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import Navbar from "./Navbar";
 import ContactButton from "./ContactButton";
+import Stars from "./Stars";
 
 export default function Header() {
   const t = useTranslations();
@@ -27,10 +28,12 @@ export default function Header() {
     >
       <Navbar />
 
+      <Stars />
+
       <div className="container relative z-10 w-full mt-0 md:mt-20">
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Right Side - Title and Description */}
-          <div className="text-center md:[text-align:unset] mb-6 md:mb-0">
+          <div className="text-center md:[text-align:unset] mb-5 md:mb-10">
             <h1
               className={`text-4xl md:text-5xl lg:text-6xl font-bold text-teal-400 mb-6 leading-tight transition-all duration-1000 ease-out ${
                 isLoaded

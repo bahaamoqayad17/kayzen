@@ -168,14 +168,14 @@ export default function Footer() {
           {/* Glowing horizontal line effect */}
 
           {/* gutters */}
-          <div className="mx-auto px-4 sm:px-6 lg:px-15">
+          <div className="mx-auto px-4 lg:px-15">
             {/* sized box for fill */}
             <div className="relative h-[13vh] md:h-[60vh] overflow-hidden">
               <Image
                 src="/kayzen.png"
                 alt="Kaizen"
                 fill
-                sizes="20vw"
+                sizes="100vw"
                 className="object-cover"
                 priority
               />
