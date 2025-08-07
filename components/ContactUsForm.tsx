@@ -1,12 +1,38 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export default function ContactUsForm() {
   const t = useTranslations();
   const [selectedService, setSelectedService] = useState("service1");
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before the section comes into view
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const services = [
     { key: "service1", icon: "/service1.svg" },
@@ -16,10 +42,17 @@ export default function ContactUsForm() {
   ];
 
   return (
-    <div className="min-h-screen text-white pb-0 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div
+      ref={sectionRef}
+      className="min-h-screen text-white pb-0 md:py-20 px-4 sm:px-6 lg:px-8"
+    >
       <div className="container mx-auto max-w-4xl">
         {/* Header Section */}
-        <div className="text-center mb-16 pt-10">
+        <div
+          className={`text-center mb-16 pt-10 transition-all duration-1000 ease-out ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
+        >
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             {t("ContactUsForm.title")}
           </h1>
@@ -30,7 +63,11 @@ export default function ContactUsForm() {
 
         {/* Contact Form */}
         <div
-          className="space-y-8 rounded-3xl p-8 border border-gray-700 backdrop-blur-[40px]"
+          className={`space-y-8 rounded-3xl p-8 border border-gray-700 backdrop-blur-[40px] transition-all duration-1000 ease-out delay-300 ${
+            isVisible
+              ? "translate-y-0 opacity-100 scale-100"
+              : "translate-y-8 opacity-0 scale-95"
+          }`}
           style={{
             background:
               "linear-gradient(10deg, rgba(174, 201, 255,0.10) 0%, rgba(104, 121, 153,0.10) 100%)",

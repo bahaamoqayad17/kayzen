@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import ContactUsForm from "./ContactUsForm";
 import Image from "next/image";
@@ -15,24 +15,61 @@ import "swiper/css/pagination";
 
 export default function OurClients() {
   const t = useTranslations();
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before the section comes into view
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   // Client logos data - using SVG icons as placeholders
   const clients = [
-    { icon: "/client1.svg" },
-    { icon: "/client1.svg" },
-    { icon: "/client1.svg" },
-    { icon: "/client1.svg" },
-    { icon: "/client1.svg" },
-    { icon: "/client1.svg" },
-    { icon: "/client1.svg" },
-    { icon: "/client1.svg" },
-    { icon: "/client1.svg" },
-    { icon: "/client1.svg" },
-    { icon: "/client1.svg" },
+    { icon: "/clients/client1.png" },
+    { icon: "/clients/client2.png" },
+    { icon: "/clients/client3.png" },
+    { icon: "/clients/client4.png" },
+    { icon: "/clients/client5.png" },
+    { icon: "/clients/client6.png" },
+    { icon: "/clients/client7.png" },
+    { icon: "/clients/client8.png" },
+    { icon: "/clients/client9.png" },
+    { icon: "/clients/client10.png" },
+    { icon: "/clients/client11.png" },
+    { icon: "/clients/client12.png" },
+    { icon: "/clients/client13.png" },
+    { icon: "/clients/client14.png" },
+    { icon: "/clients/client15.png" },
+    { icon: "/clients/client16.png" },
+    { icon: "/clients/client17.png" },
+    { icon: "/clients/client18.png" },
+    { icon: "/clients/client19.png" },
+    { icon: "/clients/client20.png" },
+    { icon: "/clients/client21.png" },
   ];
 
   return (
     <div
+      ref={sectionRef}
       className="py-20 w-full"
       style={{
         backgroundImage: `url(/our-clients.png)`,
@@ -42,7 +79,11 @@ export default function OurClients() {
       }}
     >
       {/* Header Section */}
-      <div className="text-center mb-16 px-4 sm:px-6 lg:px-8">
+      <div
+        className={`text-center mb-16 px-4 sm:px-6 lg:px-8 transition-all duration-1000 ease-out ${
+          isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+        }`}
+      >
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
           {t("OurClient.title")}
         </h2>
@@ -52,7 +93,13 @@ export default function OurClients() {
       </div>
 
       {/* Client Logos Swiper - Full Width */}
-      <div className="w-full">
+      <div
+        className={`w-full transition-all duration-1000 ease-out delay-300 ${
+          isVisible
+            ? "translate-y-0 opacity-100 scale-100"
+            : "translate-y-8 opacity-0 scale-95"
+        }`}
+      >
         <Swiper
           modules={[Autoplay, EffectFade, Navigation, Pagination]}
           spaceBetween={32}

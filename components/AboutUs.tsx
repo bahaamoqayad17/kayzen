@@ -1,12 +1,38 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 export default function AboutUs() {
   const t = useTranslations();
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before the section comes into view
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const contentBlocks = [
     {
@@ -27,16 +53,23 @@ export default function AboutUs() {
   ];
 
   return (
-    <div className="py-10 pt-0 md:py-20">
+    <div ref={sectionRef} className="py-10 pt-0 md:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Three Content Blocks */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
           {contentBlocks.map((block, index) => (
             <div
               key={block.key}
-              className={`relative rounded-4xl overflow-hidden border border-gray-600 hover:border-teal-400 transition-colors duration-300 ${
+              className={`relative rounded-4xl overflow-hidden border border-gray-600 hover:border-teal-400 transition-all duration-1000 ease-out ${
                 index === 0 ? "lg:col-span-2" : ""
+              } ${
+                isVisible
+                  ? "translate-y-0 opacity-100 scale-100"
+                  : "translate-y-8 opacity-0 scale-95"
               }`}
+              style={{
+                transitionDelay: `${index * 200}ms`,
+              }}
             >
               {/* Background overlay (10% opacity + 40px blur) */}
               <div
@@ -89,7 +122,13 @@ export default function AboutUs() {
 
         {/* Call to Action Button */}
         <div className="flex justify-center">
-          <div className="relative">
+          <div
+            className={`relative transition-all duration-1000 ease-out delay-600 ${
+              isVisible
+                ? "translate-y-0 opacity-100 scale-100"
+                : "translate-y-8 opacity-0 scale-95"
+            }`}
+          >
             <Link href={"/about"}>
               <button className="bg-black cursor-pointer text-white px-14 py-4 rounded-lg transition-all duration-300 border border-gray-600 hover:border-gray-500">
                 {t("AboutUs.readMore")}

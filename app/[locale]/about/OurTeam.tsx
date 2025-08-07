@@ -1,39 +1,52 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export default function OurTeam() {
   const t = useTranslations("OurTeam");
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before the section comes into view
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const teamMembers = [
-    {
-      name: t("member1.name"),
-      role: t("member1.role"),
-    },
-    {
-      name: t("member2.name"),
-      role: t("member2.role"),
-    },
-    {
-      name: t("member1.name"),
-      role: t("member1.role"),
-    },
-    {
-      name: t("member1.name"),
-      role: t("member1.role"),
-    },
-    {
-      name: t("member2.name"),
-      role: t("member2.role"),
-    },
-    {
-      name: t("member1.name"),
-      role: t("member1.role"),
-    },
+    { image: "/team1.jpg" },
+    { image: "/team2.jpg" },
+    { image: "/team3.jpg" },
+    { image: "/team4.jpg" },
+    { image: "/team5.jpg" },
+    { image: "/team6.jpg" },
+    { image: "/team7.jpg" },
+    { image: "/team8.jpg" },
+    { image: "/team9.jpg" },
   ];
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section ref={sectionRef} className="relative py-20 overflow-hidden">
       {/* Background with subtle grid and stars */}
       <div className="absolute inset-0">
         {/* Subtle grid lines */}
@@ -67,7 +80,11 @@ export default function OurTeam() {
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div
+          className={`text-center mb-16 transition-all duration-1000 ease-out ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {t("title")}
           </h2>
@@ -77,7 +94,17 @@ export default function OurTeam() {
         {/* Team Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
-            <div key={index} className="relative group">
+            <div
+              key={index}
+              className={`relative group transition-all duration-1000 ease-out ${
+                isVisible
+                  ? "translate-y-0 opacity-100 scale-100"
+                  : "translate-y-8 opacity-0 scale-95"
+              }`}
+              style={{
+                transitionDelay: `${(index + 1) * 100}ms`,
+              }}
+            >
               {/* Team Member Card */}
 
               <div className="relative bg-transparent border-3 border-black outline outline-1 outline-gray-600 rounded-2xl overflow-hidden backdrop-blur-sm group-hover:scale-105 transition-all duration-300">
@@ -85,18 +112,18 @@ export default function OurTeam() {
                 <div
                   className="relative aspect-square overflow-hidden"
                   style={{
-                    backgroundImage: `url(/avatar.png)`,
+                    backgroundImage: `url(${member.image})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
                   }}
                 >
-                  <div className="p-6 absolute bottom-0 left-0 right-0 z-10">
+                  {/* <div className="p-6 absolute bottom-0 left-0 right-0 z-10">
                     <h3 className="text-white text-lg font-semibold mb-2">
                       {member.name}
                     </h3>
                     <p className="text-white/70 text-sm">{member.role}</p>
-                  </div>
+                  </div> */}
                   {/* Subtle overlay for dramatic effect */}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40"></div>
                 </div>

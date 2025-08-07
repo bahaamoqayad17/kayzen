@@ -1,18 +1,56 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/locales/navigation";
 
 export default function Footer() {
   const t = useTranslations();
+  const [isVisible, setIsVisible] = useState(false);
+  const footerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before the section comes into view
+      }
+    );
+
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+
+    return () => {
+      if (footerRef.current) {
+        observer.unobserve(footerRef.current);
+      }
+    };
+  }, []);
 
   const socialMediaIcons = [
-    { src: "/X.svg", alt: "X (Twitter)" },
-    { src: "/facebook.svg", alt: "Facebook" },
-    { src: "/insta.svg", alt: "Instagram" },
-    { src: "/linkedin.svg", alt: "LinkedIn" },
+    { src: "/X.svg", alt: "X (Twitter)", link: "https://x.com/kaizen__sa" },
+    {
+      src: "/tiktok.png",
+      alt: "TikTok",
+      link: "https://www.tiktok.com/@kaizen__sa?_t=ZS-8yfupvn4RL3&_r=1",
+    },
+    {
+      src: "/insta.svg",
+      alt: "Instagram",
+      link: "https://www.instagram.com/kaizen__sa?igsh=Y2hlbWZvY2YyeWtz&utm_source=qr",
+    },
+    {
+      src: "/linkedin.svg",
+      alt: "LinkedIn",
+      link: "https://www.linkedin.com/company/kaizensa621b33337/",
+    },
   ];
 
   const navigationLinks = [
@@ -23,18 +61,22 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-black text-white py-16 pb-0">
+    <footer ref={footerRef} className="bg-black text-white py-16 pb-0">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div
+          className={`grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-1000 ease-out ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
+        >
           {/* Right Column - Company Information & Social Media */}
           <div>
             {/* Logo and Tagline */}
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               alt="Kaizen Logo"
-              width={120}
-              height={120}
-              className="h-10 w-auto mb-2"
+              width={250}
+              height={50}
+              className="mb-4 object-cover"
             />
 
             {/* Description */}
@@ -54,13 +96,15 @@ export default function Footer() {
 
                   {/* Icon */}
                   <div className="relative z-10">
-                    <Image
-                      src={icon.src}
-                      alt={icon.alt}
-                      width={24}
-                      height={24}
-                      className="w-6 h-6 text-white"
-                    />
+                    <Link href={icon.link} target="_blank">
+                      <Image
+                        src={icon.src}
+                        alt={icon.alt}
+                        width={24}
+                        height={24}
+                        className="w-6 h-6 text-white cursor-pointer"
+                      />
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -107,9 +151,13 @@ export default function Footer() {
 
       {/* Gradient Section with Kaizen Image */}
       <div
-        className="relative h-[330px] md:min-h-screen flex items-center justify-center mt-4"
+        className={`relative h-[330px] md:h-[70vh] flex items-center justify-center mt-4 transition-all duration-1000 ease-out delay-300 ${
+          isVisible
+            ? "translate-y-0 opacity-100 scale-100"
+            : "translate-y-8 opacity-0 scale-95"
+        }`}
         style={{
-          background: `linear-gradient(180deg, #000E0E 0%, #006E69 100%)`,
+          background: `linear-gradient(180deg, #000000 0%, #006E69 80%, #006E69 100%)`,
         }}
       >
         <div className="absolute top-0 left-[17%] w-70">
@@ -122,12 +170,12 @@ export default function Footer() {
           {/* gutters */}
           <div className="mx-auto px-4 sm:px-6 lg:px-15">
             {/* sized box for fill */}
-            <div className="relative h-[13vh] md:h-[60vh] rounded-2xl overflow-hidden">
+            <div className="relative h-[13vh] md:h-[60vh] overflow-hidden">
               <Image
                 src="/kayzen.png"
                 alt="Kaizen"
                 fill
-                sizes="100vw"
+                sizes="20vw"
                 className="object-cover"
                 priority
               />

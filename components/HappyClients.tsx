@@ -1,17 +1,57 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 
 export default function HappyClients() {
   const t = useTranslations();
-
   const locale = useLocale();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const testimonials = ["testimonial1", "testimonial2", "testimonial3"];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before the section comes into view
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  // Auto-loop functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isTransitioning) {
+        setIsTransitioning(true);
+        setTimeout(() => {
+          setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+          setTimeout(() => setIsTransitioning(false), 150);
+        }, 300);
+      }
+    }, 3000); // Change every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [isTransitioning, testimonials.length]);
 
   const nextTestimonial = () => {
     if (isTransitioning) return;
@@ -35,19 +75,31 @@ export default function HappyClients() {
 
   return (
     <div
+      ref={sectionRef}
       className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
-      style={{
-        backgroundImage: `url(/happy-clients.png)`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
     >
+      {/* Background Image with Bouncing Animation */}
+      <div className="absolute inset-0">
+        <Image
+          src="/happy-clients.png"
+          alt="Happy Clients Background"
+          fill
+          className="object-cover animate-bounce-slow"
+          priority
+        />
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/30"></div>
+      </div>
+
       {/* Background with 3D elements */}
 
       <div className="relative z-10 container mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <div
+          className={`text-center mb-16 transition-all duration-1000 ease-out ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
+        >
           {/* Heart Icon */}
           <div className="flex justify-center">
             <Image src="/heart.svg" alt="Heart" width={28} height={24} />
@@ -70,7 +122,11 @@ export default function HappyClients() {
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex justify-center mb-8">
+        <div
+          className={`flex justify-center mb-8 transition-all duration-1000 ease-out delay-300 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
+        >
           <div className="flex space-x-4">
             {locale === "ar" ? (
               <>
@@ -116,7 +172,13 @@ export default function HappyClients() {
         </div>
 
         {/* Testimonial Card with Vertical Progress Bar */}
-        <div className="relative flex items-center justify-center w-full md:w-[40%] mx-auto gap-4">
+        <div
+          className={`relative flex items-center justify-center w-full md:w-[40%] mx-auto gap-4 transition-all duration-1000 ease-out delay-500 ${
+            isVisible
+              ? "translate-y-0 opacity-100 scale-100"
+              : "translate-y-8 opacity-0 scale-95"
+          }`}
+        >
           <div className="relative h-full flex flex-col justify-center z-10">
             {/* Progress Bar Container */}
             <div className="relative w-1 h-40 bg-gray-700 rounded-full">
@@ -199,6 +261,22 @@ export default function HappyClients() {
           ></div>
         </div>
       </div>
+
+      <style jsx global>{`
+        @keyframes bounce-slow {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-30px);
+          }
+        }
+
+        .animate-bounce-slow {
+          animation: bounce-slow 4s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 }

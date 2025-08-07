@@ -1,12 +1,38 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 
 export default function Faq() {
   const t = useTranslations("Faq");
   const [openIndex, setOpenIndex] = useState(0); // First item open by default
   const locale = useLocale();
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before the section comes into view
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const faqItems = [
     {
@@ -32,7 +58,10 @@ export default function Faq() {
   };
 
   return (
-    <section className="relative py-20 bg-black overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative py-20 bg-black overflow-hidden"
+    >
       {/* Background with subtle grid */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 opacity-5">
@@ -51,7 +80,11 @@ export default function Faq() {
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div
+          className={`text-center mb-16 transition-all duration-1000 ease-out ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {t("title")}
           </h2>
@@ -62,7 +95,14 @@ export default function Faq() {
           {faqItems.map((item, index) => (
             <div
               key={index}
-              className="bg-gray-900/50 border border-gray-600 rounded-2xl overflow-hidden backdrop-blur-sm"
+              className={`bg-gray-900/50 border border-gray-600 rounded-2xl overflow-hidden backdrop-blur-sm transition-all duration-1000 ease-out ${
+                isVisible
+                  ? "translate-y-0 opacity-100 scale-100"
+                  : "translate-y-8 opacity-0 scale-95"
+              }`}
+              style={{
+                transitionDelay: `${(index + 1) * 150}ms`,
+              }}
             >
               {/* Question Header */}
               <button

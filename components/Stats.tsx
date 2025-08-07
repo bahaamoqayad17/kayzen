@@ -13,7 +13,7 @@ export default function Stats() {
     stat4: 0,
     stat5: 0,
   });
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
 
   const stats = [
@@ -26,23 +26,28 @@ export default function Stats() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-            animateNumbers();
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          animateNumbers();
+        }
       },
-      { threshold: 0.5 }
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before the section comes into view
+      }
     );
 
     if (statsRef.current) {
       observer.observe(statsRef.current);
     }
 
-    return () => observer.disconnect();
-  }, [hasAnimated]);
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, []);
 
   const animateNumbers = () => {
     const targetNumbers = {
@@ -82,13 +87,93 @@ export default function Stats() {
       <div className="container mx-auto">
         <div
           ref={statsRef}
-          className="rounded-3xl p-4 md:p-8 border border-gray-700 backdrop-blur-[40px]"
+          className={`rounded-3xl p-4 md:p-8 border border-gray-700 backdrop-blur-[40px] transition-all duration-1000 ease-out ${
+            isVisible
+              ? "translate-y-0 opacity-100 scale-100"
+              : "translate-y-8 opacity-0 scale-95"
+          }`}
           style={{
             background:
               "linear-gradient(10deg, rgba(1,138,131,0.10) 0%, rgba(0,218,206,0.10) 100%)",
           }}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
+          {/* Mobile Layout - 3 rows */}
+          <div className="grid grid-cols-1 sm:hidden gap-4">
+            {/* First Row - 2 stats */}
+            <div className="grid grid-cols-2 gap-4">
+              {stats.slice(0, 4).map((stat, index) => (
+                <div key={stat.key} className="relative">
+                  <div className="flex justify-center items-center text-center p-4">
+                    {/* Icon */}
+                    <div className="w-12 h-12 flex items-center justify-center">
+                      <Image
+                        src={stat.icon}
+                        alt={`${t(`Stats.${stat.key}.title`)} icon`}
+                        width={32}
+                        height={32}
+                        className="w-8 h-8 text-teal-400"
+                      />
+                    </div>
+                    {/* Title */}
+                    <div className="flex flex-col items-center justify-center">
+                      <h3 className="text-teal-400 text-sm font-medium mb-2">
+                        {t(`Stats.${stat.key}.title`)}
+                      </h3>
+
+                      {/* Number */}
+                      <span className="text-3xl md:text-4xl font-bold text-white mb-3">
+                        +
+                        {
+                          animatedNumbers[
+                            stat.key as keyof typeof animatedNumbers
+                          ]
+                        }
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Second Row - 1 centered stat */}
+            <div className="flex justify-center">
+              {stats.slice(4, 5).map((stat, index) => (
+                <div key={stat.key} className="relative">
+                  <div className="flex justify-center items-center text-center p-4">
+                    {/* Icon */}
+                    <div className="w-12 h-12 flex items-center justify-center">
+                      <Image
+                        src={stat.icon}
+                        alt={`${t(`Stats.${stat.key}.title`)} icon`}
+                        width={32}
+                        height={32}
+                        className="w-8 h-8 text-teal-400"
+                      />
+                    </div>
+                    {/* Title */}
+                    <div className="flex flex-col items-center justify-center">
+                      <h3 className="text-teal-400 text-sm font-medium mb-2">
+                        {t(`Stats.${stat.key}.title`)}
+                      </h3>
+
+                      {/* Number */}
+                      <span className="text-3xl md:text-4xl font-bold text-white mb-3">
+                        +
+                        {
+                          animatedNumbers[
+                            stat.key as keyof typeof animatedNumbers
+                          ]
+                        }
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Layout - Original 5 columns */}
+          <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
             {stats.map((stat, index) => (
               <div key={stat.key} className="relative">
                 <div className="flex justify-center items-center text-center p-4">

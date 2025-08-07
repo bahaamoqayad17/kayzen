@@ -1,5 +1,7 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Goals from "./Goals";
@@ -10,13 +12,42 @@ import ContactUsForm from "@/components/ContactUsForm";
 
 export default function About() {
   const t = useTranslations("About");
+  const [isVisible, setIsVisible] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before the section comes into view
+      }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => {
+      if (heroRef.current) {
+        observer.unobserve(heroRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
       <Navbar />
 
       {/* About Hero Section */}
-      <div className="relative min-h-screen bg-black overflow-hidden">
+      <div
+        ref={heroRef}
+        className="relative min-h-screen bg-black overflow-hidden"
+      >
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -68,17 +99,35 @@ export default function About() {
             <div className="space-y-8">
               {/* Small teal text */}
               <div className="text-center">
-                <h2 className="text-teal-400 text-lg font-medium mb-4">
+                <h2
+                  className={`text-teal-400 text-lg font-medium mb-4 transition-all duration-1000 ease-out ${
+                    isVisible
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-8 opacity-0"
+                  }`}
+                >
                   {t("subtitle")}
                 </h2>
 
                 {/* Main heading */}
-                <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+                <h1
+                  className={`text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 transition-all duration-1000 ease-out delay-300 ${
+                    isVisible
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-8 opacity-0"
+                  }`}
+                >
                   {t("title")}
                 </h1>
 
                 {/* Description paragraph */}
-                <p className="text-white/90 text-center text-lg md:text-3xl leading-relaxed">
+                <p
+                  className={`text-white/90 text-center text-lg md:text-3xl leading-relaxed transition-all duration-1000 ease-out delay-500 ${
+                    isVisible
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-8 opacity-0"
+                  }`}
+                >
                   {t("description")}
                 </p>
               </div>

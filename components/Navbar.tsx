@@ -33,19 +33,19 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm">
       <div className="container mx-auto">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex mx-5 md:mx-0 justify-between items-center h-20">
           {/* Logo Section */}
           <div className="flex items-center">
             <div className="flex flex-col items-start">
               <div className="flex items-center">
                 <Link href={"/"}>
                   <Image
-                    src="/logo.png"
+                    src="/logo.svg"
                     alt="Kaizen Logo"
                     priority
-                    width={120}
-                    height={40}
-                    className="h-10 w-auto cursor-pointer"
+                    width={150}
+                    height={150}
+                    className="cursor-pointer"
                   />
                 </Link>
               </div>
@@ -106,7 +106,7 @@ export default function Navbar() {
 
             <button
               onClick={toggleMenu}
-              className="text-white p-2 rounded-md hover:bg-white/10 transition-colors"
+              className="text-white rounded-md hover:bg-white/10 transition-colors"
             >
               <svg
                 className="w-6 h-6"

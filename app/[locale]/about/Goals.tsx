@@ -1,9 +1,37 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export default function Goals() {
   const t = useTranslations("Goals");
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before the section comes into view
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const goals = [
     {
@@ -30,7 +58,10 @@ export default function Goals() {
   ];
 
   return (
-    <section className="relative py-20 bg-black overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative py-20 bg-black overflow-hidden"
+    >
       {/* Background with subtle grid and stars */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 opacity-5">
@@ -63,7 +94,11 @@ export default function Goals() {
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div
+          className={`text-center mb-16 transition-all duration-1000 ease-out ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             {t("mainTitle")}
           </h2>
@@ -77,9 +112,16 @@ export default function Goals() {
           {goals.map((goal, index) => (
             <div
               key={index}
-              className={`flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto ${
+              className={`flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto transition-all duration-1000 ease-out ${
                 index % 2 === 1 ? "lg:flex-row-reverse" : ""
+              } ${
+                isVisible
+                  ? "translate-y-0 opacity-100 scale-100"
+                  : "translate-y-8 opacity-0 scale-95"
               }`}
+              style={{
+                transitionDelay: `${(index + 1) * 200}ms`,
+              }}
             >
               {/* Text Content */}
               <div className="w-full lg:w-1/2 space-y-6 max-w-xl mb-5 md:mb-0">

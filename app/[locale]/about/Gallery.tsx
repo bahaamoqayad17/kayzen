@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,6 +14,32 @@ import "swiper/css/pagination";
 
 export default function Gallery() {
   const t = useTranslations("Gallery");
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before the section comes into view
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const galleryItems = [
     { id: 1, image: "/slider.png", alt: "Gallery Image 1" },
@@ -25,7 +51,10 @@ export default function Gallery() {
   ];
 
   return (
-    <section className="relative py-20 bg-black overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative py-20 bg-black overflow-hidden"
+    >
       {/* Background with subtle grid */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 opacity-5">
@@ -44,7 +73,11 @@ export default function Gallery() {
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div
+          className={`text-center mb-16 transition-all duration-1000 ease-out ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {t("title")}
           </h2>
@@ -53,7 +86,13 @@ export default function Gallery() {
       </div>
 
       {/* Full Width Swiper Section */}
-      <div className="w-full">
+      <div
+        className={`w-full transition-all duration-1000 ease-out delay-300 ${
+          isVisible
+            ? "translate-y-0 opacity-100 scale-100"
+            : "translate-y-8 opacity-0 scale-95"
+        }`}
+      >
         <Swiper
           modules={[Autoplay, EffectFade, Navigation, Pagination]}
           spaceBetween={32}
@@ -100,7 +139,13 @@ export default function Gallery() {
           ))}
         </Swiper>
       </div>
-      <div className="w-full">
+      <div
+        className={`w-full transition-all duration-1000 ease-out delay-500 ${
+          isVisible
+            ? "translate-y-0 opacity-100 scale-100"
+            : "translate-y-8 opacity-0 scale-95"
+        }`}
+      >
         <Swiper
           modules={[Autoplay, EffectFade, Navigation, Pagination]}
           spaceBetween={32}

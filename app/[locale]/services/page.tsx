@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Navbar from "@/components/Navbar";
@@ -7,6 +9,32 @@ import ContactUsForm from "@/components/ContactUsForm";
 
 export default function Services() {
   const t = useTranslations();
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before the section comes into view
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const services = [
     { key: "service1", icon: "/service1.svg" },
@@ -26,6 +54,7 @@ export default function Services() {
     <>
       <Navbar />
       <div
+        ref={sectionRef}
         className="py-20 px-4 sm:px-6 lg:px-8"
         style={{
           backgroundImage: `url(/services-bg.png)`,
@@ -36,7 +65,13 @@ export default function Services() {
       >
         <div className="container mx-auto">
           {/* Header Section */}
-          <div className="mb-16 mt-20">
+          <div
+            className={`mb-16 mt-20 transition-all duration-1000 ease-out ${
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
+            }`}
+          >
             <h2 className="text-xl md:text-2xl font-bold text-[#02DCD0] mb-6">
               {t("Services.ourServices")}
             </h2>
@@ -50,13 +85,18 @@ export default function Services() {
 
           {/* Main Grid - 3x3 */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-8">
-            {services.slice(0, 10).map((service) => (
+            {services.slice(0, 10).map((service, index) => (
               <div
                 key={service.key}
-                className="bg-gray-900 rounded-3xl p-6 border border-gray-700 hover:border-teal-400 transition-colors duration-300 group"
+                className={`bg-gray-900 rounded-3xl p-6 border border-gray-700 hover:border-teal-400 transition-all duration-1000 ease-out group ${
+                  isVisible
+                    ? "translate-y-0 opacity-100 scale-100"
+                    : "translate-y-8 opacity-0 scale-95"
+                }`}
                 style={{
                   background:
                     "linear-gradient(0deg, rgba(4, 8, 14, 0.1) 0%, rgba(5, 8, 14, 0.1) 100%)",
+                  transitionDelay: `${(index + 1) * 100}ms`,
                 }}
               >
                 {/* Icon */}
@@ -95,13 +135,18 @@ export default function Services() {
 
           {/* Additional Services - 2 cards */}
           <div className="grid grid-cols-1 gap-6 w-full md:w-1/2 mx-auto">
-            {services.slice(10).map((service) => (
+            {services.slice(10).map((service, index) => (
               <div
                 key={service.key}
-                className="bg-gray-900 rounded-3xl p-6 border border-gray-700 hover:border-teal-400 transition-colors duration-300 group"
+                className={`bg-gray-900 rounded-3xl p-6 border border-gray-700 hover:border-teal-400 transition-all duration-1000 ease-out group ${
+                  isVisible
+                    ? "translate-y-0 opacity-100 scale-100"
+                    : "translate-y-8 opacity-0 scale-95"
+                }`}
                 style={{
                   background:
                     "linear-gradient(0deg, rgba(4, 8, 14, 0.1) 0%, rgba(5, 8, 14, 0.1) 100%)",
+                  transitionDelay: `${(index + 11) * 100}ms`,
                 }}
               >
                 {/* Icon */}
