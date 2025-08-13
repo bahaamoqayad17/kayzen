@@ -188,7 +188,7 @@ export default function Footer() {
           Designed By Batikha Studio
         </div> */}
         <div className="absolute bottom-4 right-4 text-white text-md font-bold">
-          2025, kayzen ©
+          2025, kaizen ©
         </div>
       </div>
     </footer>
