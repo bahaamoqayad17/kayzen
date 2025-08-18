@@ -4,6 +4,7 @@ import { getLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import localFont from "next/font/local";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const myFont = localFont({
   src: "../../public/fonts/AvenirArabic-Light.otf",
@@ -41,6 +42,7 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           {children}
           <Footer />
+          <WhatsAppButton />
         </NextIntlClientProvider>
       </body>
     </html>

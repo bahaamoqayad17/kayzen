@@ -65,7 +65,7 @@ export default function Header() {
           </div>
         </div>
         {/* Video Placeholder with Glowing Border */}
-        <div className="p-5 md:p-0">
+        {/* <div className="p-5 md:p-0">
           <div
             className={`w-full h-full flex justify-center items-center glow-box mt-10 transition-all duration-1000 ease-out delay-700 ${
               isLoaded
@@ -86,7 +86,7 @@ export default function Header() {
               </video>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

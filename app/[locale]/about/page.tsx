@@ -146,7 +146,7 @@ export default function About() {
       <Faq />
 
       {/* Gallery Section */}
-      <Gallery />
+      {/* <Gallery /> */}
 
       <div
         style={{

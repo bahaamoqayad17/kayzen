@@ -34,15 +34,15 @@ export default function OurTeam() {
   }, []);
 
   const teamMembers = [
-    { image: "/team1.jpg" },
-    { image: "/team2.jpg" },
-    { image: "/team3.jpg" },
-    { image: "/team4.jpg" },
-    { image: "/team5.jpg" },
-    { image: "/team6.jpg" },
-    { image: "/team7.jpg" },
-    { image: "/team8.jpg" },
-    { image: "/team9.jpg" },
+    { image: "/team-members/team1.png" },
+    { image: "/team-members/team2.png" },
+    { image: "/team-members/team3.png" },
+    { image: "/team-members/team4.png" },
+    { image: "/team-members/team5.png" },
+    { image: "/team-members/team6.png" },
+    { image: "/team-members/team7.png" },
+    { image: "/team-members/team8.png" },
+    { image: "/team-members/team9.png" },
   ];
 
   return (
