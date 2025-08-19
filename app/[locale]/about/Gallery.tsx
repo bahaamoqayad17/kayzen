@@ -42,8 +42,8 @@ export default function Gallery() {
   }, []);
 
   const galleryItems = [
-    { id: 1, image: "/projects/project1.jpg", alt: "Gallery Image 1" },
-    { id: 2, image: "/projects/project2.jpg", alt: "Gallery Image 2" },
+    // { id: 1, image: "/projects/project1.jpg", alt: "Gallery Image 1" },
+    // { id: 2, image: "/projects/project2.jpg", alt: "Gallery Image 2" },
     { id: 3, image: "/projects/project3.jpg", alt: "Gallery Image 3" },
     { id: 4, image: "/projects/project4.jpg", alt: "Gallery Image 4" },
     { id: 5, image: "/projects/project5.jpg", alt: "Gallery Image 5" },
@@ -153,7 +153,7 @@ export default function Gallery() {
         >
           {galleryItems.map((item, index) => (
             <SwiperSlide key={item.id}>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-gray-600 transition-transform duration-300 hover:scale-105">
+              <div className="relative aspect-[4/3] mx-4 md:mx:0 rounded-2xl overflow-hidden border border-gray-600 transition-transform duration-300 hover:scale-105">
                 <Image
                   src={item.image}
                   alt={item.alt}
@@ -206,7 +206,7 @@ export default function Gallery() {
         >
           {galleryItems.map((item, index) => (
             <SwiperSlide key={item.id}>
-              <div className="relative mt-10 aspect-[4/3] rounded-2xl overflow-hidden border border-gray-600 transition-transform duration-300 hover:scale-105">
+              <div className="relative mt-10 mx-4 md:mx-0 aspect-[4/3] rounded-2xl overflow-hidden border border-gray-600 transition-transform duration-300 hover:scale-105">
                 <Image
                   src={item.image}
                   alt={item.alt}
