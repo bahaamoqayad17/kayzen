@@ -8,6 +8,16 @@ export default function ContactUsForm() {
   const t = useTranslations();
   const [selectedService, setSelectedService] = useState("service1");
   const [isVisible, setIsVisible] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    service: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -41,6 +51,68 @@ export default function ContactUsForm() {
     { key: "service4", icon: "/service4.svg" },
   ];
 
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleServiceSelect = (serviceKey: string) => {
+    setSelectedService(serviceKey);
+    setFormData((prev) => ({
+      ...prev,
+      service: serviceKey,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: t(
+            `ContactUsForm.services.${
+              formData.service || selectedService
+            }.title`
+          ),
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          service: "",
+          message: "",
+        });
+        setSelectedService("service1");
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div
       ref={sectionRef}
@@ -62,7 +134,8 @@ export default function ContactUsForm() {
         </div>
 
         {/* Contact Form */}
-        <div
+        <form
+          onSubmit={handleSubmit}
           className={`space-y-8 rounded-3xl p-8 border border-gray-700 backdrop-blur-[40px] transition-all duration-1000 ease-out delay-300 ${
             isVisible
               ? "translate-y-0 opacity-100 scale-100"
@@ -78,26 +151,35 @@ export default function ContactUsForm() {
             {t("ContactUsForm.formTitle")}
           </h2>
 
-          {/* Name and Email Fields */}
+          {/* Name Field */}
           <div>
             <label className="block text-sm font-medium mb-2">
               {t("ContactUsForm.nameLabel")}
             </label>
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
               placeholder={t("ContactUsForm.namePlaceholder")}
               className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-teal-400 transition-colors duration-200"
+              required
             />
           </div>
 
+          {/* Email Field */}
           <div>
             <label className="block text-sm font-medium mb-2">
               {t("ContactUsForm.emailLabel")}
             </label>
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
               placeholder={t("ContactUsForm.emailPlaceholder")}
               className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-teal-400 transition-colors duration-200"
+              required
             />
           </div>
 
@@ -115,7 +197,7 @@ export default function ContactUsForm() {
                       ? "border-teal-400"
                       : "border-gray-600 hover:border-gray-500"
                   }`}
-                  onClick={() => setSelectedService(service.key)}
+                  onClick={() => handleServiceSelect(service.key)}
                 >
                   {/* Glowing border for selected service */}
                   {selectedService === service.key && (
@@ -147,23 +229,49 @@ export default function ContactUsForm() {
               {t("ContactUsForm.messageLabel")}
             </label>
             <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
               placeholder={t("ContactUsForm.messagePlaceholder")}
               rows={10}
               className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-teal-400 transition-colors duration-200 resize-none"
+              required
             />
           </div>
 
           {/* Submit Button */}
-          <div className="flex">
-            <div className="relative">
-              <button className="bg-[#032422] text-white px-18 py-4 rounded-lg transition-all duration-300 cursor-pointer hover:border-gray-500">
-                {t("ContactUsForm.submitButton")}
-              </button>
-              {/* Glowing teal line below the button */}
-              <div className="absolute -bottom-1 left-0 right-0 h-1 w-25 mx-auto bg-gradient-to-r from-transparent via-teal-400 to-transparent"></div>
+          <div className="space-y-4">
+            <div className="flex">
+              <div className="relative">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-[#032422] text-white px-18 py-4 rounded-lg transition-all duration-300 cursor-pointer hover:border-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting
+                    ? t("ContactUsForm.submittingButton") || "Sending..."
+                    : t("ContactUsForm.submitButton")}
+                </button>
+                {/* Glowing teal line below the button */}
+                <div className="absolute -bottom-1 left-0 right-0 h-1 w-25 mx-auto bg-gradient-to-r from-transparent via-teal-400 to-transparent"></div>
+              </div>
             </div>
+
+            {/* Status Messages */}
+            {submitStatus === "success" && (
+              <div className="text-green-400 text-center">
+                {t("ContactUsForm.successMessage") ||
+                  "Message sent successfully! We'll get back to you soon."}
+              </div>
+            )}
+            {submitStatus === "error" && (
+              <div className="text-red-400 text-center">
+                {t("ContactUsForm.errorMessage") ||
+                  "Failed to send message. Please try again."}
+              </div>
+            )}
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

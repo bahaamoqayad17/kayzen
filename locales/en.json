@@ -130,7 +130,7 @@
         "nameLabel": "Your Name",
         "namePlaceholder": "Ahmed Mohammed",
         "emailLabel": "Your Email",
-        "emailPlaceholder": "Ahmed Mohammed",
+        "emailPlaceholder": "ahmed@example.com",
         "serviceTitle": "Type of service you need",
         "services": {
             "service1": {
@@ -152,7 +152,10 @@
         },
         "messageLabel": "Your Message",
         "messagePlaceholder": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using it is that...",
-        "submitButton": "Send"
+        "submitButton": "Send",
+        "submittingButton": "Sending...",
+        "successMessage": "Message sent successfully! We'll get back to you soon.",
+        "errorMessage": "Failed to send message. Please try again."
     },
     "OurClient": {
         "title": "Our Clients",

@@ -130,7 +130,7 @@
         "nameLabel": "اسمك",
         "namePlaceholder": "أحمد محمد",
         "emailLabel": "إيميلك",
-        "emailPlaceholder": "أحمد محمد",
+        "emailPlaceholder": "ahmed@example.com",
         "serviceTitle": "نوع الخدمة اللي تحتاجها",
         "services": {
             "service1": {
@@ -152,7 +152,10 @@
         },
         "messageLabel": "رسالتك",
         "messagePlaceholder": "هناك حقيقة ثم إثباتها لفترة طويلة وتحتوي على قارئ صفحة ما سيتمكن القارئ من التركيز على السطح الخارجي للنص أو شكل الفقرات الموضوعة على الصفحة التي يقرأها. لذلك، يتم استخدامه",
-        "submitButton": "ارسال"
+        "submitButton": "ارسال",
+        "submittingButton": "جاري الإرسال...",
+        "successMessage": "تم إرسال الرسالة بنجاح! سنتواصل معك قريباً.",
+        "errorMessage": "فشل في إرسال الرسالة. يرجى المحاولة مرة أخرى."
     },
     "OurClient": {
         "title": "عملاؤنا",
@@ -170,7 +173,7 @@
             },
             "testimonial2": {
                 "text": "من أفضل الشركات اللي تعاملت معها، شغلهم احترافي ومتقن. نظموا لنا حملة تسويقية حققت نتائج مذهلة، وأسعارهم معقولة جداً.",
-                "name": "سارة أحمد",
+                "name": "عبد الله الشمري",
                 "title": "MARKETING MANAGER"
             },
             "testimonial3": {
