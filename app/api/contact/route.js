@@ -22,7 +22,7 @@ export async function POST(req) {
     // Email content with improved HTML design
     const mailOptions = {
       from: `"New Service Request" <${email}>`,
-      to: "info@kaizenksa.com", // Send to yourself
+      to: "contact.kaizenksa@gmail.com", // Send to yourself
       replyTo: email, // Set reply-to as the contact form email
       subject: `New Contact Form Submission: ${subject}`,
       html: `
