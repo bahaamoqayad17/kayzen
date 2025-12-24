@@ -52,7 +52,7 @@ export default function Stats() {
   const animateNumbers = () => {
     const targetNumbers = {
       stat1: 6523,
-      stat2: 2632,
+      stat2: 1150,
       stat3: 536,
       stat4: 365,
       stat5: 2632,

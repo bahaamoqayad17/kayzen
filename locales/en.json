@@ -5,7 +5,7 @@
     "About": {
         "subtitle": "Who are we",
         "title": "The people of the land who are only satisfied with beauty/excellence",
-        "description": "Kaizen is not just a name, Kaizen is a way of life in work, in creativity, and in the details that make a difference. We started from our land, and from it, we understood the market and its personality. We work with a youthful spirit, but with heavy weight. We draw the idea, build the plan, execute it with love, and leave an impact that speaks for us. Every exhibition, campaign, or production has a team behind it that knows where it's going and why it's going."
+        "description": "Kaizen Group is a Saudi-based group driven by a philosophy of excellence and continuous improvement, inspired by the Japanese concept of \"Kaizen,\" which means change for the better.\nBased in Riyadh, we build sustainable partnerships with both the public and private sectors, delivering integrated solutions in marketing, event management (including exhibitions and conferences), media production, creative design, wooden décor, advertising, as well as technology and software development.\nWith more than 12 years of experience in creativity and innovation, we have built a path of impact and success through professional execution and the genuine value we deliver in every partnership."
     },
     "Contact": {
         "title": "Contact Us"
@@ -35,7 +35,7 @@
         },
         "ourMission": {
             "title": "Our Mission",
-            "description": "We are committed to providing high-quality and innovative services, helping our clients achieve success and impact in their target markets through integrated marketing strategies"
+            "description": "To build successful and sustainable partnerships with the public and private sectors to provide integrated solutions in Marketing, Organizing events, exhibitions and conferences, Media production, Creative designs, Wooden decorations, Advertising, Technology & Programming, in a way that ensures a positive impact and exceptional success for every project we work on."
         },
         "readMore": "Read More"
     },
@@ -49,48 +49,70 @@
         "tagline": "Because beauty is not complete without someone who understands beauty, we offer you:",
         "services": {
             "service1": {
-                "title": "Design and Visual Production",
-                "description": "Beautiful sciences raise the head, and beauty does not need advertising. We design work that resembles you and speaks of your beauty... We photograph, produce, and create works that elevate your name in a way that suits your project"
+                "title": "Marketing",
+                "description": "Beautiful sciences raise the head, and beauty does not need advertising. We design work that resembles you and speaks of your beauty... We photograph, produce, and create works that elevate your name in a way that suits your project",
+                "subServices": [
+                    "Social Media Account Management",
+                    "Digital & Technical Marketing",
+                    "Paid Advertising Campaign Management",
+                    "Influencer Marketing Management",
+                    "Post Design & Content Writing"
+                ]
             },
             "service2": {
-                "title": "Social Media Account Management and Paid Campaigns",
-                "description": "He who does not count his men, his knowledge is lost. We manage your accounts correctly, adjust your advertising campaigns, deliver your voice to the far before the near. And achieve your goals and sales"
+                "title": "Media Production",
+                "description": "We produce media content that elevates your name and tells your story in a professional way that attracts audiences and leaves an unforgettable impact",
+                "subServices": [
+                    "Film Production",
+                    "Advertisement Production",
+                    "Program Production",
+                    "Motion Graphics",
+                    "Media Coverage (Photography, Video, Editing, Live Broadcasting)"
+                ]
             },
             "service3": {
-                "title": "Exhibition and Conference Organization and Management",
-                "description": "A full belt strengthens and supports the back. We handle your exhibition and conference with a capable hand, from concept to execution on the ground, with every detail calculated"
+                "title": "Advertising",
+                "description": "We deliver your message to the audience through innovative advertising and promotional solutions that leave a strong mark in the market",
+                "subServices": [
+                    "Production and installation of printed materials (banners, stickers, signs, raised printing)",
+                    "Supplying promotional gifts of all kinds (giveaways, trophies and more)",
+                    "Execution of all printed materials (certificates, brochures, flags and more)"
+                ]
             },
             "service4": {
-                "title": "Marketing and Communication Consultations",
-                "description": "Beauty is seen from the first glance. We draw smart communication and marketing plans for you, keeping you ahead of your competitors by steps"
+                "title": "Event Management",
+                "description": "A full belt strengthens and supports the back. We handle your exhibition and conference with a capable hand, from concept to execution on the ground, with every detail calculated",
+                "subServices": [
+                    "Exhibitions",
+                    "Conferences",
+                    "Internal and external company events",
+                    "Booths",
+                    "Work Shops",
+                    "Launches and Celebrations",
+                    "Crowd Management"
+                ]
             },
             "service5": {
-                "title": "Event and Season Content Management",
-                "description": "Presence is beauty, but action proves it. We organize events that put your name at the forefront... from concept to the last day of the event"
+                "title": "Technology",
+                "description": "We provide you with integrated technical solutions that support your digital transformation and develop your business with the latest technologies and software",
+                "subServices": [
+                    "Digital Transformation Consulting",
+                    "Web application and website development",
+                    "Customized software",
+                    "Cloud and Infrastructure",
+                    "Information Security",
+                    "Data and Business Intelligence",
+                    "Technical support and maintenance"
+                ]
             },
             "service6": {
-                "title": "Written and Informative Content",
-                "description": "Not everyone who rides a horse is a knight. Our team are knights of the word. We craft texts that tell your story and leave your mark on every platform"
-            },
-            "service7": {
-                "title": "Podcast Messages and WhatsApp Data",
-                "description": "Good words reach the heart. We activate voice or written messages for you to send via your project's WhatsApp data, delivering the right message in a dialect your audience loves"
-            },
-            "service8": {
-                "title": "Vlog Production and Customer Experiences (UGC)",
-                "description": "Ask an experienced person, not a wise one. Let your customers talk about their experience with you in their natural way, so people hear the words from their source"
-            },
-            "service9": {
-                "title": "Innovation and Execution of Creative Campaigns",
-                "description": "Strike while the iron is hot. We create campaigns that hit the market at the right time, making your audience remember you at every event"
-            },
-            "service10": {
-                "title": "Influencer Campaigns and Experiential Marketing",
-                "description": "While the iron is hot, choose the right influencers for you. We launch campaigns with TikTokers and famous models who suit your audience and speak their language, so they see you with an eye close to their heart"
-            },
-            "service11": {
-                "title": "Comprehensive Digital Marketing",
-                "description": "He who grows up on something grows old with it. We create a digital identity for you from scratch. Presence ads, digital reputation... supporting you from all sides"
+                "title": "Design",
+                "description": "We design strong visual identities that elevate your name and leave a distinctive mark in the market through creative two-dimensional and three-dimensional designs",
+                "subServices": [
+                    "Building Brands",
+                    "Designs 2D (Artwork, Branding, Prints & More)",
+                    "Designs 3D (Realistic designs, creative suggestions and more)"
+                ]
             }
         }
     },
@@ -134,20 +156,28 @@
         "serviceTitle": "Type of service you need",
         "services": {
             "service1": {
-                "title": "Organizing and Managing Exhibitions and Conferences",
-                "icon": "/contact-service1.svg"
+                "title": "Marketing",
+                "icon": "/service1.svg"
             },
             "service2": {
-                "title": "Managing Social Media Accounts and Paid Campaigns",
-                "icon": "/contact-service2.svg"
+                "title": "Media Production",
+                "icon": "/service2.svg"
             },
             "service3": {
-                "title": "Arabic Design and Production",
-                "icon": "/contact-service3.svg"
+                "title": "Advertising",
+                "icon": "/service3.svg"
             },
             "service4": {
-                "title": "Written and Introductory Content",
-                "icon": "/contact-service4.svg"
+                "title": "Event Management",
+                "icon": "/service4.svg"
+            },
+            "service5": {
+                "title": "Technology",
+                "icon": "/service5.svg"
+            },
+            "service6": {
+                "title": "Design",
+                "icon": "/service6.svg"
             }
         },
         "messageLabel": "Your Message",
@@ -209,7 +239,7 @@
     },
     "OurTeam": {
         "title": "Our Creative Team",
-        "subtitle": "Members of Kaizen Team",
+        "subtitle": "At Kaizen Group, we have a team of experienced professionals specializing in all the areas and services the group offers. We prioritize flexibility in our approach to ensure a deep and efficient understanding of our clients' needs and objectives.",
         "member1": {
             "name": "Ibrahim Al-Aklouk",
             "role": "UI/UX Designer"

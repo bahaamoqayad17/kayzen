@@ -72,7 +72,7 @@ export default function Footer() {
           <div>
             {/* Logo and Tagline */}
             <Image
-              src="/logo.svg"
+              src="/logo.png"
               alt="Kaizen Logo"
               width={250}
               height={50}

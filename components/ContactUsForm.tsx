@@ -49,6 +49,8 @@ export default function ContactUsForm() {
     { key: "service2", icon: "/service2.svg" },
     { key: "service3", icon: "/service3.svg" },
     { key: "service4", icon: "/service4.svg" },
+    { key: "service5", icon: "/service5.svg" },
+    { key: "service6", icon: "/service6.svg" },
   ];
 
   const handleInputChange = (
@@ -188,7 +190,7 @@ export default function ContactUsForm() {
             <h3 className="text-lg font-medium mb-6">
               {t("ContactUsForm.serviceTitle")}
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {services.map((service) => (
                 <div
                   key={service.key}

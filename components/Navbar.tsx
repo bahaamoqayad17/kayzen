@@ -40,7 +40,7 @@ export default function Navbar() {
               <div className="flex items-center">
                 <Link href={"/"}>
                   <Image
-                    src="/logo.svg"
+                    src="/logo.png"
                     alt="Kaizen Logo"
                     priority
                     width={150}
