@@ -120,7 +120,7 @@ export default function Services() {
                       {subServices.map((subService, subIndex) => (
                         <li
                           key={subIndex}
-                          className={`text-gray-400 text-md leading-relaxed flex items-start gap-2`}
+                          className={`text-gray-300 text-md leading-relaxed flex items-start gap-2`}
                         >
                           <span className={`text-teal-400`}>• {"  "}</span>
                           <span>{subService}</span>

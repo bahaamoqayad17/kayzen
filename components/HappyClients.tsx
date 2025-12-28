@@ -106,7 +106,7 @@ export default function HappyClients() {
           </div>
 
           {/* Subtitle */}
-          <p className="text-teal-400 text-lg font-medium mb-4">
+          <p className="text-teal-400 text-xl font-medium mb-4">
             {t("HappyClients.subtitle")}
           </p>
 
