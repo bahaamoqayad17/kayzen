@@ -42,40 +42,40 @@ export default function Gallery() {
   }, []);
 
   const galleryItems = [
-    // { id: 1, image: "/projects/project1.jpg", alt: "Gallery Image 1" },
-    // { id: 2, image: "/projects/project2.jpg", alt: "Gallery Image 2" },
-    { id: 3, image: "/projects/project3.jpg", alt: "Gallery Image 3" },
-    { id: 4, image: "/projects/project4.jpg", alt: "Gallery Image 4" },
-    { id: 5, image: "/projects/project5.jpg", alt: "Gallery Image 5" },
-    { id: 6, image: "/projects/project6.jpg", alt: "Gallery Image 6" },
-    { id: 7, image: "/projects/project7.jpg", alt: "Gallery Image 7" },
-    { id: 8, image: "/projects/project8.jpg", alt: "Gallery Image 8" },
-    { id: 9, image: "/projects/project9.jpg", alt: "Gallery Image 9" },
-    { id: 10, image: "/projects/project10.jpg", alt: "Gallery Image 10" },
-    { id: 11, image: "/projects/project11.jpg", alt: "Gallery Image 11" },
-    { id: 12, image: "/projects/project12.jpg", alt: "Gallery Image 12" },
-    { id: 13, image: "/projects/project13.jpg", alt: "Gallery Image 13" },
-    { id: 14, image: "/projects/project14.jpg", alt: "Gallery Image 14" },
-    { id: 15, image: "/projects/project15.jpg", alt: "Gallery Image 15" },
-    { id: 16, image: "/projects/project16.jpg", alt: "Gallery Image 16" },
-    { id: 17, image: "/projects/project17.jpg", alt: "Gallery Image 17" },
-    { id: 18, image: "/projects/project18.jpg", alt: "Gallery Image 18" },
-    { id: 19, image: "/projects/project19.jpg", alt: "Gallery Image 19" },
-    { id: 20, image: "/projects/project20.jpg", alt: "Gallery Image 20" },
-    { id: 21, image: "/projects/project21.jpg", alt: "Gallery Image 21" },
-    { id: 22, image: "/projects/project22.jpg", alt: "Gallery Image 22" },
-    { id: 23, image: "/projects/project23.jpg", alt: "Gallery Image 23" },
-    { id: 24, image: "/projects/project24.jpg", alt: "Gallery Image 24" },
-    { id: 25, image: "/projects/project25.jpg", alt: "Gallery Image 25" },
-    { id: 26, image: "/projects/project26.jpg", alt: "Gallery Image 26" },
-    { id: 27, image: "/projects/project27.jpg", alt: "Gallery Image 27" },
-    { id: 28, image: "/projects/project28.jpg", alt: "Gallery Image 28" },
-    { id: 29, image: "/projects/project29.jpg", alt: "Gallery Image 29" },
-    { id: 30, image: "/projects/project30.jpg", alt: "Gallery Image 30" },
-    { id: 31, image: "/projects/project31.jpg", alt: "Gallery Image 31" },
-    { id: 32, image: "/projects/project32.jpg", alt: "Gallery Image 32" },
-    { id: 33, image: "/projects/project33.jpg", alt: "Gallery Image 33" },
-    { id: 34, image: "/projects/project34.jpg", alt: "Gallery Image 34" },
+    { id: 1, image: "/more-projects/project1.jpg", alt: "Gallery Image 1" },
+    { id: 2, image: "/more-projects/project2.jpg", alt: "Gallery Image 2" },
+    { id: 3, image: "/more-projects/project3.jpg", alt: "Gallery Image 3" },
+    { id: 4, image: "/more-projects/project4.png", alt: "Gallery Image 4" },
+    { id: 5, image: "/more-projects/project5.jpg", alt: "Gallery Image 5" },
+    { id: 6, image: "/more-projects/project6.jpg", alt: "Gallery Image 6" },
+    { id: 7, image: "/more-projects/project7.png", alt: "Gallery Image 7" },
+    { id: 8, image: "/more-projects/project8.JPG", alt: "Gallery Image 8" },
+    { id: 9, image: "/more-projects/project9.jpg", alt: "Gallery Image 9" },
+    { id: 10, image: "/more-projects/project10.png", alt: "Gallery Image 10" },
+    { id: 11, image: "/more-projects/project11.jpg", alt: "Gallery Image 11" },
+    { id: 12, image: "/more-projects/project12.jpg", alt: "Gallery Image 12" },
+    { id: 13, image: "/more-projects/project13.jpg", alt: "Gallery Image 13" },
+    { id: 14, image: "/more-projects/project14.jpg", alt: "Gallery Image 14" },
+    { id: 15, image: "/more-projects/project15.jpg", alt: "Gallery Image 15" },
+    { id: 16, image: "/more-projects/project16.png", alt: "Gallery Image 16" },
+    { id: 17, image: "/more-projects/project17.png", alt: "Gallery Image 17" },
+    { id: 18, image: "/more-projects/project18.png", alt: "Gallery Image 18" },
+    { id: 19, image: "/more-projects/project19.png", alt: "Gallery Image 19" },
+    { id: 20, image: "/more-projects/project20.jpg", alt: "Gallery Image 20" },
+    // { id: 21, image: "/projects/project21.jpg", alt: "Gallery Image 21" },
+    // { id: 22, image: "/projects/project22.jpg", alt: "Gallery Image 22" },
+    // { id: 23, image: "/projects/project23.jpg", alt: "Gallery Image 23" },
+    // { id: 24, image: "/projects/project24.jpg", alt: "Gallery Image 24" },
+    // { id: 25, image: "/projects/project25.jpg", alt: "Gallery Image 25" },
+    // { id: 26, image: "/projects/project26.jpg", alt: "Gallery Image 26" },
+    // { id: 27, image: "/projects/project27.jpg", alt: "Gallery Image 27" },
+    // { id: 28, image: "/projects/project28.jpg", alt: "Gallery Image 28" },
+    // { id: 29, image: "/projects/project29.jpg", alt: "Gallery Image 29" },
+    // { id: 30, image: "/projects/project30.jpg", alt: "Gallery Image 30" },
+    // { id: 31, image: "/projects/project31.jpg", alt: "Gallery Image 31" },
+    // { id: 32, image: "/projects/project32.jpg", alt: "Gallery Image 32" },
+    // { id: 33, image: "/projects/project33.jpg", alt: "Gallery Image 33" },
+    // { id: 34, image: "/projects/project34.jpg", alt: "Gallery Image 34" },
   ];
 
   return (
@@ -151,7 +151,7 @@ export default function Gallery() {
           }}
           className="gallery-swiper"
         >
-          {galleryItems.map((item, index) => (
+          {galleryItems.slice(0, 10).map((item, index) => (
             <SwiperSlide key={item.id}>
               <div className="relative aspect-[4/3] mx-4 md:mx:0 rounded-2xl overflow-hidden border border-gray-600 transition-transform duration-300 hover:scale-105">
                 <Image
@@ -204,7 +204,7 @@ export default function Gallery() {
           }}
           className="gallery-swiper"
         >
-          {galleryItems.map((item, index) => (
+          {galleryItems.slice(10).map((item, index) => (
             <SwiperSlide key={item.id}>
               <div className="relative mt-10 mx-4 md:mx-0 aspect-[4/3] rounded-2xl overflow-hidden border border-gray-600 transition-transform duration-300 hover:scale-105">
                 <Image
