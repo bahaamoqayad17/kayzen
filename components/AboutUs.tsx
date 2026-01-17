@@ -87,20 +87,19 @@ export default function AboutUs() {
 
               {/* Content (stays fully opaque) */}
               <div className="relative z-10 p-6">
-                <div className="flex gap-4">
+                <div className="flex gap-4 items-center">
                   {block.showLogo && (
                     <div className="flex flex-col items-center">
                       <Image
-                        src="/aboutus-logo.png"
+                        src="/logo.png"
                         alt="Kaizen Logo"
-                        width={120}
+                        width={800}
                         height={120}
                         priority
                       />
-                      <div className="text-center">
-                        <div className="text-gray-400 text-xs">
-                          {t("Tagline.title")}
-                        </div>
+
+                      <div className="text-gray-400 text-md text-center">
+                        {t("Tagline.title")}
                       </div>
                     </div>
                   )}
