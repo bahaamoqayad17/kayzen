@@ -84,6 +84,29 @@ export default function Footer() {
               {t("Footer.description")}
             </p>
 
+            {/* Contact Information */}
+            <div className="mb-6 space-y-3">
+              <h3 className="text-white font-bold text-lg mb-4">
+                {t("Footer.contact")}
+              </h3>
+              <div className="space-y-2">
+                <a
+                  href="mailto:contact.kaizenksa@gmail.com"
+                  className="text-gray-300 hover:text-teal-400 transition-colors duration-200 flex items-center gap-2"
+                >
+                  <span className="font-medium">{t("Footer.email")}:</span>
+                  <span>Info@kaizenksa.com</span>
+                </a>
+                <a
+                  href="tel:+966112733305"
+                  className="text-gray-300 hover:text-teal-400 transition-colors duration-200 flex items-center gap-2"
+                >
+                  <span className="font-medium">{t("Footer.mobile")}:</span>
+                  <span>+966 11 273 3305</span>
+                </a>
+              </div>
+            </div>
+
             {/* Social Media Icons */}
             <div className="flex space-x-4">
               {socialMediaIcons.map((icon, index) => (

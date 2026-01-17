@@ -27,15 +27,15 @@
     "AboutUs": {
         "whoWeAre": {
             "title": "Who Are We?",
-            "description": "We are a specialized team in marketing and exhibition organizing, working to provide innovative and impactful solutions for our clients through extensive experience in digital and traditional marketing"
+            "description": "Kaizen Group, we are a Saudi group that lives by a philosophy of excellence and continuous improvement, inspired by the Japanese \"Kaizen\" which means change for the better.\nWe started from Riyadh, building sustainable partnerships with both public and private sectors to provide integrated solutions in marketing, organizing events, exhibitions and conferences, creative designs, wooden decorations, advertising, technology and programming.\nWith over 12 years of experience in creativity and innovation, we have established a path of impact and success through professional execution and the real value we provide in every partnership."
         },
         "ourVision": {
             "title": "Our Vision",
-            "description": "We strive to be the first strategic partner for companies in achieving their marketing goals, and we aspire to reach the pinnacle of leadership in marketing and exhibition organizing by 2030"
+            "description": "We believe in the importance of adapting to changes and embracing challenges as opportunities for growth, development and achievement. We are committed to responding quickly to any change in circumstances or requirements, which ensures achieving the best results.\n\nEfficiency\nWe work to achieve goals with the highest level of professionalism and efficiency, and we are keen to organize work and distribute tasks effectively, to ensure high productivity and speed of execution.\n\nCreativity\nWe always strive to innovate new ideas and solutions, because creativity is the engine that drives us to open different horizons and gives our projects a real competitive advantage."
         },
         "ourMission": {
             "title": "Our Mission",
-            "description": "To build successful and sustainable partnerships with the public and private sectors to provide integrated solutions in Marketing, Organizing events, exhibitions and conferences, Media production, Creative designs, Wooden decorations, Advertising, Technology & Programming, in a way that ensures a positive impact and exceptional success for every project we work on."
+            "description": "Building successful and sustainable partnerships with both public and private sectors to provide integrated solutions in marketing, organizing events, exhibitions and conferences, media production, creative designs, wooden decorations, advertising, technology and programming, in a way that ensures positive impact and exceptional success for every project we work on."
         },
         "readMore": "Read More"
     },
@@ -143,7 +143,10 @@
         "pages": "Pages",
         "newsletter": "Subscribe to our newsletter",
         "emailPlaceholder": "Enter your email here",
-        "subscribe": "Subscribe"
+        "subscribe": "Subscribe",
+        "contact": "Contact Us",
+        "email": "Email",
+        "mobile": "Mobile"
     },
     "ContactUsForm": {
         "title": "Ready to hear you... and support you",
