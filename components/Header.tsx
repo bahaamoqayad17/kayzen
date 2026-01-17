@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import Navbar from "./Navbar";
 import ContactButton from "./ContactButton";
 import Stars from "./Stars";
+import Image from "next/image";
 
 export default function Header() {
   const t = useTranslations();
@@ -31,27 +32,41 @@ export default function Header() {
       <Stars />
 
       <div className="container relative z-10 w-full mt-0 md:mt-20">
+        <div className="flex flex-col items-center justify-center mb-10">
+          <Image
+            src="/Art12.png"
+            alt="Kaizen Logo"
+            width={300}
+            height={300}
+            priority
+            className="object-cover"
+          />
+        </div>
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Right Side - Title and Description */}
+
           <div className="text-center md:[text-align:unset] mb-5 md:mb-10">
-            <h1
-              className={`text-4xl md:text-5xl lg:text-6xl font-bold text-teal-400 mb-6 leading-tight transition-all duration-1000 ease-out ${
-                isLoaded
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-8 opacity-0"
-              }`}
-            >
-              {t("Header.title")}
-            </h1>
-            <p
-              className={`text-white text-lg md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0 transition-all duration-1000 ease-out delay-300 ${
-                isLoaded
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-8 opacity-0"
-              }`}
-            >
-              {t("Header.description")}
-            </p>
+            <div className="flex flex-col items-center justify-center">
+              <h1
+                className={`text-4xl md:text-5xl lg:text-6xl font-bold text-teal-400 mb-6 leading-tight transition-all duration-1000 ease-out ${
+                  isLoaded
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
+                }`}
+              >
+                {t("Header.title")}
+              </h1>
+
+              <p
+                className={`text-white text-lg md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0 transition-all duration-1000 ease-out delay-300 ${
+                  isLoaded
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
+                }`}
+              >
+                {t("Header.description")}
+              </p>
+            </div>
           </div>
 
           <div
@@ -64,6 +79,15 @@ export default function Header() {
             <ContactButton />
           </div>
         </div>
+
+        <Image
+          src="/Art1.png"
+          alt="Arrow"
+          width={400}
+          height={400}
+          priority
+          className="object-cover"
+        />
         {/* Video Placeholder with Glowing Border */}
         {/* <div className="p-5 md:p-0">
           <div
